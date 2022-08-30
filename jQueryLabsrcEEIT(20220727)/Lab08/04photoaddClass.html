@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>04PhotoaddClass.html</title>
+    <meta charset="utf-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <style>
+        figure {
+            width: 20%;
+            border: 4px solid transparent;
+            margin: 4px;
+            width: 120px;
+            height: 120px;
+        }
+
+        figure.active {
+            border: 4px solid red;
+        }
+
+        figure img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="py-2 text-center">
+            <img id="mainPic" src="images/pokemon1.png" alt="">
+        </div>
+        <div class="d-flex justify-content-center">
+            <figure class="active">
+                <img src="images/pokemon1.png" alt="">
+            </figure>
+            <figure>
+                <img src="images/pokemon2.png" alt="">
+            </figure>
+            <figure>
+                <img src="images/pokemon3.png" alt="">
+            </figure>
+            <figure>
+                <img src="images/pokemon4.png" alt="">
+            </figure>
+            <figure>
+                <img src="images/pokemon5.png" alt="">
+            </figure>
+        </div>
+    </div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>
+        $("figure").click(function () {
+            // 選中的紅框包住、其他的消去紅框("active")
+            $(this).addClass("active").siblings().removeClass("active");
+            // 展示圖換成選中的照片->設定 img 的 src 屬性(用 property 也可以)
+            let pic = $(this).find("img").attr("src");
+            $("#mainPic").attr("src", pic);
+        });
+    </script>
+</body>
+
+</html>

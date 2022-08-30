@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>02chain.html</title>
+</head>
+
+<body>
+    <h1>write less, do more1</h1>
+    <h1>write less, do more2</h1>
+    <h1>write less, do more3</h1>
+    <h1>write less, do more4</h1>
+    <h1>write less, do more5</h1>
+
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> -->
+    <script>
+        $(document).ready(function () {
+            /*    
+            $("h1").css("color", "green");
+                $("h1").mouseover(function () {
+                    $(this).css("color", "red");
+    
+                    console.log(this); // <h1>
+                    console.log($(this)); // selector
+                    console.log($(this).css("color"));
+                    console.log($(this).css("color", "red").css("color"));
+    
+                    // error => $(this).css("color") 回傳 String，不是 JQuery，不能再.css("color", "red")
+                    // $(this).css("color").css("color", "red");
+                });
+                $("h1").mouseout(function () {
+                    $(this).css("color", "green");
+                });
+            */
+            // JQuery鏈式寫法
+            // function colorIn() {
+            //     $(this).css("color", "blue");
+            // };
+            // function colorOut() {
+            //     $(this).css("color", "orange");
+            // };
+            // $("h1").mouseover(colorIn).mouseout(colorOut);
+
+            // JQuery鏈式寫法-箭頭函數寫法
+            // 寫法一-錯誤寫法，this 會指向 document (現在是在(document).ready下寫，自然指向 document)
+
+            // $("h1").mouseover(() => {
+            //     $(this).css("color", "blue");
+            //     console.log(this);
+            // }).mouseout(() => {
+            //     $(this).css("color", "orange");
+            // })
+
+            // 寫法二
+            // $("h1").mouseover((event) => {
+            //     $(event.currentTarget).css("color", "blue");
+            //     console.log(this);
+            // }).mouseout((event) => {
+            //     $(event.currentTarget).css("color", "orange");
+            // })
+            // // 寫法三
+            // () 內 event 可寫可不寫
+            let colorIn = (event) => {
+                $(event.currentTarget).css("color", "blue");
+            }
+            let colorOut = (event) => {
+                $(event.currentTarget).css("color", "orange");
+            }
+            $("h1").mouseover(colorIn).mouseout(colorOut);
+
+        });
+    </script>
+
+</body>
+
+</html>

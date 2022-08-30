@@ -1,0 +1,147 @@
+https://www.similartech.com/categories/javascript
+https://w3techs.com/technologies/overview/javascript_library
+
+JavaScript Library 函數庫，由很多的函數(方法)的集合
+//JavaScript object.method();
+//jQuery $(selector).action();
+//JavaScript 操作控制的對象是物件
+//jQuery 操作控制的對象是選擇(取)器 selector 是多個物件
+
+對JavaScript 
+U4 函數寫法 
+1. 函數宣告 
+function f(a,b){
+return (a+b);
+}
+f();
+
+
+2. 匿名函數
+let f=function(a,b){
+return (a+b)
+}
+f();
+
+3. 箭頭函數
+let f=(a,b)=>{
+return (a+b)
+}
+f();
+
+U5 物件 繫結 函數就稱為方法
+//object
+cars={
+	brand:"tesla",
+	disp:function(){return `${this.brand}`}  //方法	 匿名函數
+	}
+
+cars={
+	brand:"tesla",	
+	disp:f1    //方法  函數宣告 
+	}
+function f1(){
+return `${this.brand}`
+}
+//use method
+cars.disp();
+
+U6 事件  繫結 函數就稱事件處理程序 
+<h1 id="h">method 2</h1>
+<script>
+document.getElementById("h").onclick=f2;
+function f2(){ 函數宣告 
+alert("method 2");
+}
+
+document.getElementById("h").onclick=function (){  //匿名函數
+alert("method 2");
+}
+</script>
+
+//JavaScript 取得物件
+<h1 id="h">this is heading 1</h1>
+let JSO=document.getElementById("h");
+let JSO=document.querySelector("#h");
+let JSO=document.querySelectorAll("#h")[0];  //NodeList
+
+//JavaScript 取得物件內容
+let JSOContent=JSO.innerHTML;
+let JSOContent=JSO.innerText; //IE8
+let JSOContent=JSO.textContent;  //firefox
+
+//jQuery  取得選擇器
+//CSS
+1.inline  <h1 style="...>xxx</h1>
+2.embedding  
+<style>
+h1{color:red}
+</style>
+3.linking
+<link  href=
+
+selector{
+1.type
+2.class
+3.id
+}
+
+let JQS=jQuery("#h")  回傳選擇器selector
+let JQS=$("h1")
+
+//jQuery 取得物件內容
+let JQSContent=JQS.html();
+let JQSContent=JQS.text(); //IE8,firefox
+
+//JavaScript 事件處理程序
+1. <h1 onclick="f1()">method 1</h1>
+<script>
+function f1(){
+alert("method 1");
+}
+</script>
+
+2. <h1 id="h">method 2</h1>
+<script>
+document.querySelector("#h").onclick=f2;
+function f2(){  //函數宣告
+alert("method 2");
+}
+
+document.querySelector("#h").onclick=function(){  //匿名函數
+alert("method 2");
+}
+
+</script>
+
+3. <h1 id="h">method 3</h1>
+<script>
+document.querySelector("#h").addEventListener("click",f3);
+function f3(){
+alert("method 3");
+}
+</script>
+
+
+//jQuery 事件處理程序
+1. x
+
+2. <h1 id="h">method 2</h1>
+<script>
+$("#h").click(f2);
+function f2(){   //函數宣告
+alert("method 2");
+}
+
+//匿名函數
+$("#h").click(function(){
+alert("method 2");
+})
+</script>
+
+//3. x不支援
+
+<h1>xxxx</h1>
+$("h1").css("color","red");
+$("h1").click(function(){
+alert("jQuery");
+})

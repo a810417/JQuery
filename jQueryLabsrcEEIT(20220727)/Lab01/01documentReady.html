@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>01documentReady.html</title>
+</head>
+
+<body>
+    <h1>write less,do more</h1>
+    <script src="../js/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script>
+        // 寫法一
+        jQuery(document).ready(function () {
+            // 網頁載入後立刻執行JavaScript程式
+            $("h1").css("color", "green");
+        })
+        // (document).ready 可省略、jQuery 可簡寫為 $
+
+        // 寫法二
+        $(function () {
+            $("h1").css("color", "green");
+        })
+        // script 寫在 body 結束前也可不用寫 (document).ready 這段，因為沒有優先載入的必要
+        // script 寫在 head 由於載入時還沒讀取到 body 所以設定不會生效(沒有作用對象)
+    </script>
+</body>
+
+</html>
