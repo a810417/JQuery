@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="utf-8">
+    <title>Homework01</title>
+</head>
+
+<body>
+    <img id="img1" class="i" src="images/star.gif" name="off" />
+    <img id="img2" class="ii" src="images/star.gif" name="off" />
+    <img id="img3" class="iii" src="images/star.gif" name="off" />
+    <img id="img4" class="iv" src="images/star.gif" name="off" />
+    <img id="img5" class="v" src="images/star.gif" name="off" />
+
+
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>
+        function hoverIn() {
+            console.log("我又進來了");
+            // $(this).prevAll().prop("src", "../Lab04/images/chngstar.gif")
+            // $(this).prop("src", "../Lab04/images/chngstar.gif")
+
+            $(this).prop("src", "../Lab04/images/chngstar.gif").prevAll().prop("src", "../Lab04/images/chngstar.gif")
+        }
+        function hoverOut() {
+            console.log("我又出去了");
+            // $(this).prevAll().prop("src", "images/star.gif")
+            // $(this).prop("src", "images/star.gif")
+
+            $(this).prop("src", "images/star.gif").prevAll().prop("src", "images/star.gif")
+        }
+        function stop() {
+            $(this).prop("src", "../Lab04/images/chngstar.gif").prevAll().prop("src", "../Lab04/images/chngstar.gif");
+            $("img").off("mouseleave").prevAll().off("mouseleave");
+            $("img").off("mouseenter").prevAll().off("mouseenter");
+        }
+
+        $("img").hover(hoverIn, hoverOut);
+
+        $("img").click(stop)
+
+        $("img").dblclick(function () {
+            $("img").prop("src", "images/star.gif");
+            $("img").on("mouseleave", hoverOut);
+            $("img").on("mouseenter", hoverIn);
+            $("img").on("click", stop);
+        })
+
+    </script>
+</body>
+
+</html>
